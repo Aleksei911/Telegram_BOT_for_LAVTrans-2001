@@ -23,10 +23,10 @@ async def start():
     dp = Dispatcher()
 
     scheduler = AsyncIOScheduler(timezone='Europe/Moscow')
-    scheduler.add_job(apsched.send_message_car, trigger='cron', hour='09',
-                      minute='00', start_date=datetime.now(), kwargs={'bot': bot})
-    scheduler.add_job(apsched.send_message_driver, trigger='cron', hour='09',
-                      minute='00', start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(apsched.send_message_car, trigger='cron', hour='15',
+                      minute='15', start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(apsched.send_message_driver, trigger='cron', hour='15',
+                      minute='15', start_date=datetime.now(), kwargs={'bot': bot})
     scheduler.start()
 
     dp.startup.register(start_bot)

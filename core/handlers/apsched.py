@@ -24,12 +24,16 @@ async def send_message_car(bot: Bot):
                 answer += f"КАСКО до - {car['kasko'][8:10]}.{car['kasko'][5:7]}.{car['kasko'][:4]}\n"
             if car['cmr_strahovka']:
                 answer += f"CMR-страховка до - {car['cmr_strahovka'][8:10]}.{car['cmr_strahovka'][5:7]}.{car['cmr_strahovka'][:4]}"
+            if car['e100_rb']:
+                answer += f"Топливная карта Е100 РБ до - {car['e100_rb'][8:10]}.{car['e100_rb'][5:7]}.{car['e100_rb'][:4]}"
+            if car['e100_rf']:
+                answer += f"Топливная карта Е100 РФ до - {car['e100_rf'][8:10]}.{car['e100_rf'][5:7]}.{car['e100_rf'][:4]}"
 
             await bot.send_message(settings.bots.group_id, answer)
 
 
 async def send_message_driver(bot: Bot):
-    await asyncio.sleep(2)
+    await asyncio.sleep(10)
     drivers = await get_driver()
     if drivers:
         await bot.send_message(settings.bots.group_id, 'ВНИМАНИЕ!!!!')

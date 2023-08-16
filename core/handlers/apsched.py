@@ -81,7 +81,37 @@ async def send_message_driver(bot: Bot):
                     answer += f"Виза до - {driver['visa'][8:10]}.{driver['visa'][5:7]}.{driver['visa'][:4]}\n"
             if driver['driver_card']:
                 if datetime.datetime.strptime(driver['driver_card'], "%Y-%m-%d").date() <= driver_check_day:
-                    answer += f"Водительское до - {driver['driver_card'][8:10]}.{driver['driver_card'][5:7]}.{driver['driver_card'][:4]} !!!"
+                    answer += f"Водительское до - {driver['driver_card'][8:10]}.{driver['driver_card'][5:7]}.{driver['driver_card'][:4]} !!!\n"
                 else:
-                    answer += f"Водительское до - {driver['driver_card'][8:10]}.{driver['driver_card'][5:7]}.{driver['driver_card'][:4]}"
+                    answer += f"Водительское до - {driver['driver_card'][8:10]}.{driver['driver_card'][5:7]}.{driver['driver_card'][:4]}\n"
+            if driver['mezhdunarodnik']:
+                if datetime.datetime.strptime(driver['mezhdunarodnik'], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Квалификационная карточка водителя (международник) до - {driver['mezhdunarodnik'][8:10]}.{driver['mezhdunarodnik'][5:7]}.{driver['mezhdunarodnik'][:4]} !!!\n"
+                else:
+                    answer += f"Квалификационная карточка водителя (международник) до - {driver['mezhdunarodnik'][8:10]}.{driver['mezhdunarodnik'][5:7]}.{driver['mezhdunarodnik'][:4]}\n"
+            if driver['chip ']:
+                if datetime.datetime.strptime(driver['chip '], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Карта водителя (ЧИП) до - {driver['chip '][8:10]}.{driver['chip '][5:7]}.{driver['chip '][:4]} !!!\n"
+                else:
+                    answer += f"Карта водителя (ЧИП) до - {driver['chip '][8:10]}.{driver['chip '][5:7]}.{driver['chip '][:4]}\n"
+            if driver['adr']:
+                if datetime.datetime.strptime(driver['adr'], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Свидетельство ДОПОГ (ADR) до - {driver['adr'][8:10]}.{driver['adr'][5:7]}.{driver['adr'][:4]} !!!\n"
+                else:
+                    answer += f"Свидетельство ДОПОГ (ADR) до - {driver['adr'][8:10]}.{driver['adr'][5:7]}.{driver['adr'][:4]}\n"
+            if driver['doverennost_rus']:
+                if datetime.datetime.strptime(driver['doverennost_rus'], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Доверенность ООО ЛАВТРАНС-2001 РУС до - {driver['doverennost_rus'][8:10]}.{driver['doverennost_rus'][5:7]}.{driver['doverennost_rus'][:4]} !!!\n"
+                else:
+                    answer += f"Доверенность ООО ЛАВТРАНС-2001 РУС до - {driver['doverennost_rus'][8:10]}.{driver['doverennost_rus'][5:7]}.{driver['doverennost_rus'][:4]}\n"
+            if driver['doverennost_lt']:
+                if datetime.datetime.strptime(driver['doverennost_lt'], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Доверенность ЧТУП ЛАВТранс-2001 до - {driver['doverennost_lt'][8:10]}.{driver['doverennost_lt'][5:7]}.{driver['doverennost_lt'][:4]} !!!\n"
+                else:
+                    answer += f"Доверенность ЧТУП ЛАВТранс-2001 до - {driver['doverennost_lt'][8:10]}.{driver['doverennost_lt'][5:7]}.{driver['doverennost_lt'][:4]}\n"
+            if driver['doverennost_mul']:
+                if datetime.datetime.strptime(driver['doverennost_mul'], "%Y-%m-%d").date() <= driver_check_day:
+                    answer += f"Доверенность ООО МУЛЬТИЛАЙН до - {driver['doverennost_mul'][8:10]}.{driver['doverennost_mul'][5:7]}.{driver['doverennost_mul'][:4]} !!!"
+                else:
+                    answer += f"Доверенность ООО МУЛЬТИЛАЙН до - {driver['doverennost_mul'][8:10]}.{driver['doverennost_mul'][5:7]}.{driver['doverennost_mul'][:4]}"
             await bot.send_message(settings.bots.group_id, answer)

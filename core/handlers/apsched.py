@@ -62,7 +62,7 @@ async def send_message_car(bot: Bot):
 
 
 async def send_message_driver(bot: Bot):
-    await asyncio.sleep(10)
+    await asyncio.sleep(60)
     drivers = await get_driver()
     driver_check_day = datetime.date.today() + datetime.timedelta(days=30)
     if drivers:
@@ -89,7 +89,7 @@ async def send_message_driver(bot: Bot):
                     answer += f"Квалификационная карточка водителя (международник) до - {driver['mezhdunarodnik'][8:10]}.{driver['mezhdunarodnik'][5:7]}.{driver['mezhdunarodnik'][:4]} !!!\n"
                 else:
                     answer += f"Квалификационная карточка водителя (международник) до - {driver['mezhdunarodnik'][8:10]}.{driver['mezhdunarodnik'][5:7]}.{driver['mezhdunarodnik'][:4]}\n"
-            if driver['chip ']:
+            if driver['chip']:
                 if datetime.datetime.strptime(driver['chip '], "%Y-%m-%d").date() <= driver_check_day:
                     answer += f"Карта водителя (ЧИП) до - {driver['chip '][8:10]}.{driver['chip '][5:7]}.{driver['chip '][:4]} !!!\n"
                 else:

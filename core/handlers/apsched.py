@@ -58,11 +58,13 @@ async def send_message_car(bot: Bot):
                 else:
                     answer += f"Топливная карта Е100 РФ до - {car['e100_rf'][8:10]}.{car['e100_rf'][5:7]}.{car['e100_rf'][:4]}"
 
+            await asyncio.sleep(3)
+
             await bot.send_message(settings.bots.group_id, answer)
 
 
 async def send_message_driver(bot: Bot):
-    await asyncio.sleep(60)
+    await asyncio.sleep(90)
     drivers = await get_driver()
     driver_check_day = datetime.date.today() + datetime.timedelta(days=30)
     if drivers:
